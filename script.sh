@@ -50,6 +50,7 @@ echo "Creating user"
 useradd -m -s /bin/bash "$USERNAME"
 echo "$USERNAME:$PASSWORD" | chpasswd
 
+mkdir -p "/home/$USERNAME"
 
 echo "Creating project setup file"
 cat <<EOL > "/home/$USERNAME/script.sh"
