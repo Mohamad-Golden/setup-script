@@ -3,6 +3,18 @@
 USERNAME="shahram"
 PASSWORD="1234567890"
 
+echo "Enter 1 for Saiman, and 2 for IDK:"
+read input
+
+if [ "$input" -eq 1 ]; then
+    choice="b"
+elif [ "$input" -eq 2 ]; then
+    choice="i"
+else
+    echo "Invalid input."
+    exit 1
+fi
+
 echo "Updating package list..."
 apt update
 
@@ -56,12 +68,12 @@ echo "Creating project setup file"
 cat <<EOL > "/home/$USERNAME/script.sh"
 #!/bin/bash
 
-mkdir Desktop/app
+mkdir -p Desktop/app
 cd Desktop/app
 
 echo "Cloning yolo"
-git clone https://github.com/Mohamad-Golden/image-recognition-b.git
-mv image-recognition-b yolo
+git clone "https://github.com/Mohamad-Golden/image-recognition-$choice.git"
+mv "image-recognition-$choice" yolo
 
 echo "Creating venv"
 python3.10 -m venv venv
