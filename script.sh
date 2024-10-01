@@ -49,8 +49,6 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 apt install -y ./google-chrome-stable_current_amd64.deb
 
 echo "Installing edge"
-wget https://packages.microsoft.com/keys/microsoft.asc -O microsoft.asc
-apt-key add microsoft.asc
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" | tee /etc/apt/sources.list.d/microsoft-edge.list
 apt update
 apt install -y microsoft-edge-stable
